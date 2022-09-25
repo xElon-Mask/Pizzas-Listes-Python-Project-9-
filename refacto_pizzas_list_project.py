@@ -1,8 +1,18 @@
 pizzas = ["4 fromages", "Végétarienne", "Hawaï", "Calzone"]
 
+def pizza_existe(collection, e):
+    for i in collection:
+        if i == e:
+            return True
+    return False
+
 def ajouter_pizza_utilisateur(collection):
     p = input("Pizza à ajouter: ")
-    collection.append(p)
+    # verif = pizza_existe(collection, p)
+    if p.lower() in collection:
+        print("ERREUR : Cette pizza est déjà disponible dans la liste")
+    else:
+        collection.append(p)
 
 def afficher(collection):
     if len(collection) == 0:
