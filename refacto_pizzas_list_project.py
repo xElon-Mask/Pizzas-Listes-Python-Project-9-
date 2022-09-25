@@ -14,14 +14,15 @@ def ajouter_pizza_utilisateur(collection):
     else:
         collection.append(p)
 
-def afficher(collection):
+def afficher(collection, nb_pizzas=-1):
     collection.sort()
     if len(collection) == 0:
          print("AUCUNE PIZZA")
     else:
         print("---- LISTE DES PIZZAS (", len(collection), ") ----")
-        for pizza in collection:
+        for pizza in collection[0:nb_pizzas]:
             print(pizza)
+        print(collection[-1])
         print()
     # afficher la 1ere pizza
         print("Première Pizza : ", collection[0])
@@ -29,6 +30,9 @@ def afficher(collection):
         print("Dernière Pizza : ", collection[-1])
 
 ajouter_pizza_utilisateur(pizzas)
-afficher(pizzas)
+afficher(pizzas, 2)
 
 
+# afficher uniquement les 2 ou 3 premières pizzas.
+# modifier la fonction afficher pour passer un paramètre : si afficher(pizzas, 3) il n'affichera que les 3 premières pizzas
+# attention, c'est un paramètre optionnel, si on ne passe aucun chiffre cela doit continuer à fonctionner comme avant (afficher toutes les pizzas)
