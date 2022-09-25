@@ -15,6 +15,7 @@ def ajouter_pizza_utilisateur(collection):
         collection.append(p)
 
 def afficher(collection):
+    collection.sort()
     if len(collection) == 0:
          print("AUCUNE PIZZA")
     else:
@@ -29,3 +30,5 @@ def afficher(collection):
 
 ajouter_pizza_utilisateur(pizzas)
 afficher(pizzas)
+
+
