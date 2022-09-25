@@ -1,4 +1,5 @@
 pizzas = ["4 fromages", "Végétarienne", "Hawaï", "Calzone"]
+vide = ()
 
 def pizza_existe(collection, e):
     for i in collection:
@@ -14,23 +15,25 @@ def ajouter_pizza_utilisateur(collection):
     else:
         collection.append(p)
 
-def afficher(collection, nb_pizzas=-1):
-    collection.sort()
-    if len(collection) == 0:
+def afficher(collection, n_premiers_elements=-1):
+    #collection.sort()
+    c = collection
+    if not n_premiers_elements == -1:
+        c = collection[:n_premiers_elements]
+    if len(c) == 0:
          print("AUCUNE PIZZA")
     else:
-        print("---- LISTE DES PIZZAS (", len(collection), ") ----")
-        for pizza in collection[0:nb_pizzas]:
+        print("---- LISTE DES PIZZAS (", len(c), ") ----")
+        for pizza in c:
             print(pizza)
-        print(collection[-1])
         print()
     # afficher la 1ere pizza
-        print("Première Pizza : ", collection[0])
+        print("Première Pizza : ", c[0])
     # afficher la dernière pizza
-        print("Dernière Pizza : ", collection[-1])
+        print("Dernière Pizza : ", c[-1])
 
 ajouter_pizza_utilisateur(pizzas)
-afficher(pizzas, 2)
+afficher(vide, 3)
 
 
 # afficher uniquement les 2 ou 3 premières pizzas.
