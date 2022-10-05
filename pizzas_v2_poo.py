@@ -5,4 +5,6 @@ class Pizza():
         self.nom = nom
         self.prix = prix
 
+    def Afficher(self):
+        print(f"PIZZA {self.nom} : {self.prix} €")
 
