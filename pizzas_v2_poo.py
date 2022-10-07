@@ -25,13 +25,20 @@ class Pizza():
 # chaque pizza aura un nom différent, un prix différent, et aura des ingédients différents
 # et il vous est également possible de donner un nombre différent d'ingrédients entre els différents pizzas
 
-pizzas = (  Pizza("4 fromages", 8.50, ("Brie", "Emmental", "Comté", "Parmesan"), True),
+pizzas = [ Pizza("4 fromages", 8.50, ("Brie", "Emmental", "Comté", "Parmesan"), True),
             Pizza("Tartiflette", 15.90, ("Reblochon", "Lardons", "Crème", "Oignons", "Vin Blanc")),
             Pizza("Végétarienne", 9.50, ("Poivrons", "Tomate", "Emmental", "coeur d'artichaut"), True),
             Pizza("Royale", 13.80, ("Salami", "Champigons", "Jambon", "Tomate")),
             Pizza("Océane", 5.60, ("Saumon", "Thon", "Moules", "Beurre Persillé"))
-)
+]
 
+# ici e est une Pizza
+def tri(e):
+    return e.nom
+
+
+
+pizzas.sort(key=tri)
 
 # Utiliser une boucle pour afficher les différentes pizzas 
 # (1) afficher uniquement les pizzas végétariennes, en rajoutant du code uniquement dans la boucle for
