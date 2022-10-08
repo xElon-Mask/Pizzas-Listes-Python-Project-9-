@@ -41,7 +41,6 @@ class PizzaPersonnalisee(Pizza):
 
     def calculer_le_prix(self):
        self.prix = self.PRIX_DE_BASE + len(self.ingredients) * self.PRIX_PAR_INGREDIENT
-       return self.prix
 
 # rajouter plusieurs pizzas
 # avec une nouvelle variable pizzas qui va être un tuple de plusieurs pizzas, 3 ou 4
