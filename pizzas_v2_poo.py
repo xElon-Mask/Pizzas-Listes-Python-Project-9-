@@ -23,12 +23,15 @@ class PizzaPersonnalisee(Pizza):
 
     PRIX_DE_BASE = 7
     PRIX_PAR_INGREDIENT = 1.2
+    # il faut utiliser une variable de classe qui sera l'index global du numéro des variables
+    dernier_numero = 0
 
-    def __init__(self, numero):
-        self.numero = numero
+    def __init__(self):
+        PizzaPersonnalisee.dernier_numero += 1
+        self.numero = PizzaPersonnalisee.dernier_numero
     # comme cette classe hérite d'une classe parente, je dois également appelé le constructeur de ce dernier:
     # super().__init__(self, nom, prix, ingredients, vegetarienne=False)
-        super().__init__("Personnalisée", 0, [])
+        super().__init__("Personnalisée " + str(self.numero), 0, [])
         self.demander_ingredients_utilisateur()
         self.calculer_le_prix()
     
@@ -56,8 +59,8 @@ pizzas = [ Pizza("4 fromages", 8.50, ("Brie", "Emmental", "Comté", "Parmesan"),
             Pizza("Végétarienne", 9.50, ("Poivrons", "Tomate", "Emmental", "coeur d'artichaut"), True),
             Pizza("Royale", 13.80, ("Salami", "Champigons", "Jambon", "Tomate")),
             Pizza("Océane", 5.60, ("Saumon", "Thon", "Moules", "Beurre Persillé")),
-            PizzaPersonnalisee(1),
-            PizzaPersonnalisee(2)
+            PizzaPersonnalisee(),
+            PizzaPersonnalisee()
 ]
 
 # ici e est une Pizza
