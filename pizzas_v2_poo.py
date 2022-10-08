@@ -24,14 +24,18 @@ class PizzaPersonnalisee(Pizza):
     PRIX_DE_BASE = 7
     PRIX_PAR_INGREDIENT = 1.2
 
-    def __init__(self):
+    def __init__(self, numero):
+        self.numero = numero
     # comme cette classe hérite d'une classe parente, je dois également appelé le constructeur de ce dernier:
     # super().__init__(self, nom, prix, ingredients, vegetarienne=False)
-        super().__init__("Personnalisée", self.PRIX_DE_BASE, [])
+        super().__init__("Personnalisée", 0, [])
         self.demander_ingredients_utilisateur()
         self.calculer_le_prix()
     
     def demander_ingredients_utilisateur(self):
+        print()
+        # afficher : ingrédients pour la pizza personnalisée numéro de la pizza
+        print("ingédrients pour la pizza personnalisée", str(self.numero))
         while True:
             ingredient = input("Ajouter un ingrédient (ou ENTREE pour terminer):")
             if ingredient == "":
@@ -52,7 +56,8 @@ pizzas = [ Pizza("4 fromages", 8.50, ("Brie", "Emmental", "Comté", "Parmesan"),
             Pizza("Végétarienne", 9.50, ("Poivrons", "Tomate", "Emmental", "coeur d'artichaut"), True),
             Pizza("Royale", 13.80, ("Salami", "Champigons", "Jambon", "Tomate")),
             Pizza("Océane", 5.60, ("Saumon", "Thon", "Moules", "Beurre Persillé")),
-            PizzaPersonnalisee()
+            PizzaPersonnalisee(1),
+            PizzaPersonnalisee(2)
 ]
 
 # ici e est une Pizza
@@ -74,6 +79,8 @@ for pizza in pizzas:
     #if "Tomate" in pizza.ingredients:
     pizza.Afficher()
 
+
+# Créer plusieurs pizzas personnalisées, et afficher le numéro de la pizza
 
 
 
