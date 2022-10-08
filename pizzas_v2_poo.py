@@ -19,6 +19,29 @@ class Pizza():
         print(", ".join(self.ingredients))
         print()
 
+class PizzaPersonnalisee(Pizza):
+
+    PRIX_DE_BASE = 7
+    PRIX_PAR_INGREDIENT = 1.2
+
+    def __init__(self):
+    # comme cette classe hérite d'une classe parente, je dois également appelé le constructeur de ce dernier:
+    # super().__init__(self, nom, prix, ingredients, vegetarienne=False)
+        super().__init__("Personnalisée", self.PRIX_DE_BASE, [])
+        self.demander_ingredients_utilisateur()
+        self.calculer_le_prix()
+    
+    def demander_ingredients_utilisateur(self):
+        while True:
+            ingredient = input("Ajouter un ingrédient (ou ENTREE pour terminer):")
+            if ingredient == "":
+                return
+            self.ingredients.append(ingredient)
+            print(f"Vous avez {len(self.ingredients)} ingrédient(s) : {', '.join(self.ingredients)}")
+
+    def calculer_le_prix(self):
+       self.prix = self.PRIX_DE_BASE + len(self.ingredients) * self.PRIX_PAR_INGREDIENT
+       return self.prix
 
 # rajouter plusieurs pizzas
 # avec une nouvelle variable pizzas qui va être un tuple de plusieurs pizzas, 3 ou 4
@@ -29,7 +52,8 @@ pizzas = [ Pizza("4 fromages", 8.50, ("Brie", "Emmental", "Comté", "Parmesan"),
             Pizza("Tartiflette", 15.90, ("Reblochon", "Lardons", "Crème", "Oignons", "Vin Blanc")),
             Pizza("Végétarienne", 9.50, ("Poivrons", "Tomate", "Emmental", "coeur d'artichaut"), True),
             Pizza("Royale", 13.80, ("Salami", "Champigons", "Jambon", "Tomate")),
-            Pizza("Océane", 5.60, ("Saumon", "Thon", "Moules", "Beurre Persillé"))
+            Pizza("Océane", 5.60, ("Saumon", "Thon", "Moules", "Beurre Persillé")),
+            PizzaPersonnalisee()
 ]
 
 # ici e est une Pizza
@@ -38,7 +62,7 @@ def tri(e):
 
 
 
-pizzas.sort(key=tri)
+#pizzas.sort(key=tri)
 
 # Utiliser une boucle pour afficher les différentes pizzas 
 # (1) afficher uniquement les pizzas végétariennes, en rajoutant du code uniquement dans la boucle for
@@ -47,9 +71,9 @@ pizzas.sort(key=tri)
 # (4) afficher uniquement les pizzas à moins de 10€
 
 for pizza in pizzas:
-    if pizza.prix < 10:
+    #if pizza.prix < 10:
     #if "Tomate" in pizza.ingredients:
-        pizza.Afficher()
+    pizza.Afficher()
 
 
 
